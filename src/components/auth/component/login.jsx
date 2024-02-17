@@ -20,9 +20,7 @@ export const Login = () => {
       body: JSON.stringify({
         email,
         password,
-        password,
-        password,
-        password,
+
       }),
     });
 
@@ -38,6 +36,9 @@ export const Login = () => {
     <div>
       <form onSubmit={handleSubmitLogin} action="">
         <input name="email" type="text" />
+        <input name="password" type="text" />
+        <input name="password" type="text" />
+        <input name="password" type="text" />
         <input name="password" type="text" />
         <button>Login</button>
       </form>
