@@ -2,8 +2,10 @@
 
 import React from "react";
 import Cookies from "js-cookie";
+// import { useRouter } from "next/navigation";
 
 export const Login = () => {
+//   const router = useRouter();
   async function handleSubmitLogin(event) {
     event.preventDefault();
 
@@ -25,6 +27,8 @@ export const Login = () => {
     localStorage.setItem("user", JSON.stringify(payload));
 
     Cookies.set("token", token);
+
+    // router.push("/dashboard");
   }
 
   return (
