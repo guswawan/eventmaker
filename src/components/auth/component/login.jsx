@@ -2,10 +2,10 @@
 
 import React from "react";
 import Cookies from "js-cookie";
-// import { useRouter } from "next/navigation";
+import { useRouter } from "next/navigation";
 
 export const Login = () => {
-//   const router = useRouter();
+  const router = useRouter();
   async function handleSubmitLogin(event) {
     event.preventDefault();
 
@@ -29,16 +29,13 @@ export const Login = () => {
 
     Cookies.set("token", token);
 
-    // router.push("/dashboard");
+    router.push("/dashboard");
   }
 
   return (
     <div>
       <form onSubmit={handleSubmitLogin} action="">
         <input name="email" type="text" />
-        <input name="password" type="text" />
-        <input name="password" type="text" />
-        <input name="password" type="text" />
         <input name="password" type="text" />
         <button>Login</button>
       </form>
