@@ -32,7 +32,7 @@ export const Register = () => {
         <div className="flex items-center gap-2 p-4 w-full">
           <h1 className="font-bold text-xl">🗓️ </h1>
           <span className="text-base text-white font-semibold">
-            /eventmaker
+            /eventmaker.
           </span>
         </div>
         <div className="h-[90vh] flex flex-col items-center justify-center">
