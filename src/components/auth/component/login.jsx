@@ -3,6 +3,7 @@
 import React from "react";
 import Cookies from "js-cookie";
 import { useRouter } from "next/navigation";
+import Link from "next/link";
 
 export const Login = () => {
   const router = useRouter();
@@ -101,6 +102,13 @@ export const Login = () => {
               Sign in
             </button>
           </form>
+          <p className="text-xs">
+            {`Don't have an account yet?`}
+            <Link href={"/register"} className="text-[#5621B6]">
+              {" "}
+              Sign up now
+            </Link>
+          </p>
         </div>
       </div>
     </section>

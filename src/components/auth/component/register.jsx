@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import React from "react";
 
 export const Register = () => {
@@ -105,6 +106,13 @@ export const Register = () => {
               Register
             </button>
           </form>
+          <p className="text-xs">
+            {`Already have an account?`}
+            <Link href={"/login"} className="text-[#5621B6]">
+              {" "}
+              Sign in now
+            </Link>
+          </p>
         </div>
       </div>
     </section>

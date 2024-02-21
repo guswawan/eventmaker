@@ -4,6 +4,7 @@ import { userAgent } from "next/server";
 import React, { useEffect, useState } from "react";
 import Cookies from "js-cookie";
 import { useRouter } from "next/navigation";
+import Link from "next/link";
 
 const Page = () => {
   const router = useRouter();
@@ -25,14 +26,16 @@ const Page = () => {
   }, []);
   return (
     <section>
-      <div className="navbar bg-base-100">
-        <div className="flex items-center gap-2 p-4 w-full">
-          <button className="btn btn-ghost rounded-full">
-            <h1 className="font-bold text-xl">🗓️ </h1>
-            <span className="text-base text-black font-semibold">
-              /eventmaker.
-            </span>
-          </button>
+      <div className="navbar bg-base-100 drop-shadow-lg sticky top-0 z-50 px-12">
+        <div className="flex items-center gap-2 p-4 w-full ">
+          <Link href="/" passHref={true}>
+            <button className="btn btn-ghost rounded-full">
+              <h1 className="font-bold text-xl">🗓️ </h1>
+              <span className="text-base text-black font-semibold">
+                /eventmaker.
+              </span>
+            </button>
+          </Link>
         </div>
         <div className="flex-none gap-2">
           {/* muncul ketika user sudah login */}
