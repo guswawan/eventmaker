@@ -1,12 +1,13 @@
 import { Register } from "@/components/auth/component/register";
 import { Login } from "@/components/auth/component/login";
 import { AllEvents } from "@/components/AllEvents";
+import Link from "next/link";
 
 export default function Home() {
   return (
     <>
       {/* TOPBAR */}
-      <div className="navbar bg-base-100 drop-shadow-lg sticky top-0 z-50">
+      <div className="navbar bg-base-100 drop-shadow-lg sticky top-0 z-50 px-12">
         <div className="flex items-center gap-2 p-4 w-full">
           <button className="btn btn-ghost rounded-full">
             <h1 className="font-bold text-xl">🗓️ </h1>
@@ -16,8 +17,8 @@ export default function Home() {
           </button>
         </div>
         <div className="flex-none gap-2">
-          {/* muncul ketika user sudah login */}
-          <div className="form-control">
+          {/* START muncul ketika user sudah login */}
+          {/* <div className="form-control">
             <button className="btn btn-ghost rounded-full">My Events</button>
           </div>
 
@@ -90,7 +91,17 @@ export default function Home() {
                 <a>Logout</a>
               </li>
             </ul>
-          </div>
+          </div> */}
+          {/* END */}
+
+          <button class="group relative h-12 overflow-hidden overflow-x-hidden rounded-badge bg-neutral-950 px-8 py-2 text-neutral-50">
+            <Link href={"/login"}>
+              <span class="relative z-10">Sign In</span>
+              <span class="absolute inset-0 overflow-hidden rounded-md">
+                <span class="absolute left-0 aspect-square w-full origin-center -translate-x-full rounded-full bg-[#5621B6] transition-all duration-500 group-hover:-translate-x-0 group-hover:scale-150"></span>
+              </span>
+            </Link>
+          </button>
         </div>
       </div>
 
