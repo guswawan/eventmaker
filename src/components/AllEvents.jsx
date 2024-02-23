@@ -2,17 +2,22 @@
 
 import React, { useState, useEffect } from "react";
 import { getAllEvents } from "@/lib/fetching";
+import Link from "next/link";
+import { Loader } from "./Loader";
 
 export const AllEvents = () => {
   const [dataEvents, setDataEvents] = useState(null);
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     const fetchData = async () => {
       try {
         const data = await getAllEvents();
         setDataEvents(data);
+        setIsLoading(false);
       } catch (error) {
         console.error("Error fetching event list:", error);
+        setIsLoading(false);
       }
     };
 
@@ -42,9 +47,9 @@ export const AllEvents = () => {
           ></path>
         </svg>
       </div>
-
-      <div className="grid lg:grid-cols-3 grid-cols-1 gap-4 mb-4">
-        {dataEvents &&
+      {isLoading && <Loader />}
+      <div className="grid lg:grid-cols-3 grid-cols-1 gap-x-4 gap-y-6 pb-10">
+        {!isLoading &&
           dataEvents.map((item) => (
             <div
               key={item.events.id}
@@ -69,9 +74,11 @@ export const AllEvents = () => {
                 <h2 className="card-title">{item.events.title}</h2>
                 <p className="truncate">{item.events.description}</p>
                 <div className="card-actions justify-end">
-                  <button className="btn btn-ghost text-[#5621B6] hover:btn hover:rounded-badge">
-                    Get Info
-                  </button>
+                  <Link href={`/event/${item.events.id}`} passHref>
+                    <button className="btn btn-ghost text-[#5621B6] hover:btn hover:rounded-badge">
+                      Get Info
+                    </button>
+                  </Link>
                 </div>
               </div>
             </div>
