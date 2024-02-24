@@ -1,9 +1,9 @@
 "use client";
 
 import React from "react";
-import Cookies from "js-cookie";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
+import { login } from "@/lib/auth";
 
 export const Login = () => {
   const router = useRouter();
@@ -13,34 +13,26 @@ export const Login = () => {
     const email = event.target.email.value;
     const password = event.target.password.value;
 
-    const res = await fetch("https://eventmakers-api.fly.dev/auth/login", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        email,
-        password,
-      }),
-    });
-
-    const { payload, token } = await res.json();
-    localStorage.setItem("user", JSON.stringify(payload));
-
-    Cookies.set("token", token);
-
-    router.push("/dashboard");
+    try {
+      await login(email, password);
+      router.push("/dashboard");
+      router.refresh();
+    } catch (error) {
+      console.error("error", error.message);
+    }
   }
 
   return (
     <section className="grid lg:grid-cols-2 grid-cols-1 bg-blue-300">
       <div className="bg-[#5621B6] h-screen flex flex-col items-center justify-center hidden lg:block">
-        <div className="flex items-center gap-2 p-4 w-full">
-          <h1 className="font-bold text-xl">🗓️ </h1>
-          <span className="text-base text-white font-semibold">
-            /eventmaker.
-          </span>
-        </div>
+        <Link href={"/"}>
+          <div className="flex items-center gap-2 p-4 w-full">
+            <h1 className="font-bold text-xl">🗓️ </h1>
+            <span className="text-base text-white font-semibold">
+              /eventmaker.
+            </span>
+          </div>
+        </Link>
         <div className="h-[90vh] flex flex-col items-center justify-center">
           <h1 className="font-bold text-4xl text-white leading-loose">
             Log in to enjoy all the benefits!

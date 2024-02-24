@@ -30,12 +30,14 @@ export const Register = () => {
   return (
     <section className="grid lg:grid-cols-2 grid-cols-1 bg-blue-300">
       <div className="bg-[#5621B6] h-screen flex flex-col items-center justify-center hidden lg:block">
-        <div className="flex items-center gap-2 p-4 w-full">
-          <h1 className="font-bold text-xl">🗓️ </h1>
-          <span className="text-base text-white font-semibold">
-            /eventmaker.
-          </span>
-        </div>
+        <Link href={"/"}>
+          <div className="flex items-center gap-2 p-4 w-full">
+            <h1 className="font-bold text-xl">🗓️ </h1>
+            <span className="text-base text-white font-semibold">
+              /eventmaker.
+            </span>
+          </div>
+        </Link>
         <div className="h-[90vh] flex flex-col items-center justify-center">
           <h1 className="font-bold text-4xl text-white leading-loose">
             Register to enjoy all the benefits!
